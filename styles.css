@@ -72,7 +72,7 @@ nav {
 
 .sidebar.show {
     display: block;
-    
+    height: 110vh;
 }
 
 .profile-btn img.profile-img {
