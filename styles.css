@@ -1,0 +1,239 @@
+/* -----------------------Global ----------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* -----------------------Navegação ----------------------- */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #222;
+    color: #fff;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+}
+
+.nav-brand h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: bold;
+    color: #f0a500;
+
+}
+
+.nav-brand p {
+    font-size: 1rem;
+    margin: 0;
+    color: #ddd;
+    white-space: normal;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+/* -------------Trabalhando com a imagem do meu profile e seu botao --------------- */
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.sidebar.show {
+    display: block;
+    
+}
+
+.profile-btn img.profile-img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.profile-btn.hide-img img.profile-img {
+    opacity: 0;
+    width: 0;
+}
+
+
+.nav-links li a:hover {
+    color: #f0a500;
+
+}
+
+figure {
+    text-align: center;
+}
+
+img {
+    width: 70%;
+    height: auto;
+}
+
+/* ----------------------------Conteudo About --------------------- */
+
+main {
+    flex: 1;
+    display: flex;
+    margin-top: 0px;
+    box-sizing: border-box;
+    
+}
+
+
+
+.sidebar {
+    display: none;
+    height: 100%;
+    background-color: #f0f0f0;
+    text-align: justify;
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.main-content {
+    width: 100%;
+    height: auto;    
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+article {
+    margin: 15px
+}
+
+h3,
+p,
+span {
+    margin: 10px;
+}
+
+.about {
+    padding: 5px 20px;
+    margin-left: 20px;
+    text-align: justify;
+
+}
+
+/* ----------------------------Contato --------------------- */
+
+footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+
+}
+
+footer a {
+    color: #f0a500;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/*----------------------------Computadores ---------------------------------*/
+@media (min-width: 800px) {
+
+    .sidebar {
+        padding: 20px;
+        border-radius: 5px;
+        width: 30%;
+        min-width: 300px;
+        max-width: 300px;
+
+    }
+
+}
+
+/*----------------------------Aplicando estilos no Tablets ---------------------------------*/
+
+@media (max-width: 800px) {
+
+    nav,
+    footer {
+        width: 100%;
+        height: 100%;
+        gap: 10px;
+        background-color: #222;
+    }
+
+}
+
+/*----------------------------Aplicando estilos no celular---------------------------------*/
+@media (max-width: 600px) {
+    .nav-links {
+        display: ;
+
+    }
+
+    figure {
+        text-align: center;
+    }
+
+    .sidebar img {
+        width: 50%;
+        height: auto;
+    }
+
+    main {
+        flex-direction: column;
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+
+    }
+
+    .sidebar {
+        width: 100%;
+        min-width: 0;
+        max-width: auto;
+        padding: 20px;
+
+    }
+
+    .profile-btn img.profile-img {
+        display: none;
+    }
+}
