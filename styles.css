@@ -4,12 +4,31 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+
+}
+
+html,
+body {
+    background-color: blue;
 }
 
 /* -----------------------Navegação ----------------------- */
 
+
+header {
+    position: sticky;
+    /* Lembrar que nao pode usar o fixed, pois ele passa a ignorar o fluxo do site. Parecia bobeira mas um desse fixed fez todo o programa bugar */
+    top: 0;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100px;
+    max-height: 100px;
+    z-index: 1000;
+}
+
 nav {
+    height: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +37,8 @@ nav {
     color: #fff;
     flex-wrap: wrap;
     margin-bottom: 0;
-    width: 100%;
+
+
 }
 
 .nav-brand {
@@ -49,8 +69,6 @@ nav {
     align-items: center;
     gap: 20px;
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .nav-links li a {
@@ -72,8 +90,9 @@ nav {
 
 .sidebar.show {
     display: block;
-    
 }
+
+.main-content.shifted {}
 
 .profile-btn img.profile-img {
     width: 50px;
@@ -93,6 +112,7 @@ nav {
 
 }
 
+
 figure {
     text-align: center;
 }
@@ -103,32 +123,56 @@ img {
 }
 
 /* ----------------------------Conteudo About --------------------- */
-
-main {
-    flex: 1;
-    display: flex;
-    margin-top: 0px;
-    box-sizing: border-box;
-    
+body {
+    display: block;
 }
 
+.sidebar,
+.about {
+    top: 100px;
+    width: 100%;
+    margin: 0;
+}
+.container, main{
+    position:relative;
+    display: flex;
+    width: 100%;
+}
+main {
+    padding: 0;
+    background-color: pink;
+    height: 100%;
+    min-height: 100vh;
 
+}
 
 .sidebar {
     display: none;
-    height: 100%;
+    /* Lembrar que nao pode usar o fixed, pois ele passa a ignorar o fluxo do site */
+    position: sticky;
+    
     background-color: #f0f0f0;
     text-align: justify;
     border-radius: 5px;
+
     overflow-y: auto;
+    box-sizing: border-box;
+
+     /* importante para impedir que fique a pontinha do sidebar vazando devido a autura do nav */
+    height: calc(100vh - 100px);
+
+
 }
 
-.main-content {
-    width: 100%;
-    height: auto;    
-    box-sizing: border-box;
-    overflow: hidden;
+.about {
+    /* Esse scroll concerta a cagada do conteudo do main subir para o nav */
+    scroll-margin-top: 100px;
+    min-height: 100vh;
+    padding: 5px 20px;
+    text-align: justify;
+    background-color: purple;
 }
+
 
 article {
     margin: 15px
@@ -140,25 +184,20 @@ span {
     margin: 10px;
 }
 
-.about {
-    padding: 5px 20px;
-    margin-left: 20px;
-    text-align: justify;
 
-}
 
 /* ----------------------------Contato --------------------- */
 
 footer {
+    position: block;
+    bottom: 0;
+    z-index: 0;
     width: 100%;
-    background-color: black;
     color: white;
     text-align: center;
     margin-top: 0;
     padding: 20px;
-    position: relative;
-    bottom: 0;
-
+    background-color: black;
 }
 
 footer a {
@@ -173,6 +212,12 @@ footer a:hover {
 
 /*----------------------------Computadores ---------------------------------*/
 @media (min-width: 800px) {
+
+    nav,
+    footer {
+        width: 100%;
+        gap: 10px;
+    }
 
     .sidebar {
         padding: 20px;
@@ -192,11 +237,17 @@ footer a:hover {
     nav,
     footer {
         width: 100%;
-        height: 100%;
-        gap: 10px;
         background-color: #222;
     }
 
+    .sidebar {
+
+        border-radius: 5px;
+        width: 30%;
+        min-width: 300px;
+        max-width: 300px;
+
+    }
 }
 
 /*----------------------------Aplicando estilos no celular---------------------------------*/
